@@ -1,0 +1,51 @@
+.post-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.back-image{
+    max-width: 3em;
+}
+.view-mod{
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    
+}
+.title span{
+    font-size: 2em;
+    overflow: hidden;
+    margin: 0.25em;
+    padding: 0.25em;
+    background-color: var(--block3);
+    border-bottom: 2px solid black;
+}
+:host{
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+}
+.panel{
+    display: flex;
+    flex-direction: column;
+
+}
+.body{
+    font-size: 1.4em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+}
+.underBody{
+    padding: 0.5em;
+}
+@media only screen and (min-width:740px) {
+    :host{
+      flex-shrink: 1;
+      flex-basis: 61%;
+      padding: 1em;
+    }
+  }

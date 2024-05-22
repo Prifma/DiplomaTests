@@ -1,0 +1,26 @@
+<span (click)="Back()"><img src="/src/assets/icons8-back-80.png" class="back-image"></span>
+<div class="load" *ngIf="!answerIsCome">
+    <app-load></app-load>
+</div>
+<div class="matches">
+<div *ngFor="let item of list?.matches" class="w">
+    <div (click)="goToMatch(item?.matchId!)" class="match" [ngClass]="{'radiant': item.radiantWin, 'dire': !item.radiantWin}">
+        <team [id]="item?.radiantId!">
+        </team>
+        <div class="score">
+            <span>Тривалість гри</span>
+            <span>{{item.duration}}</span>
+            <span>Рахунок</span>
+            <span>{{item.score}}</span>
+        </div>
+        <team [id]="item?.direId!">
+        </team>
+    </div>
+</div>
+</div>
+<span *ngIf="list?.matches?.length === 0">Матчів немає </span>
+<div>
+    <div *ngFor="let i of paggination" class="pagination">  
+        <button (click)="refresh(i)" [disabled]="list?.page! === i" [ngClass]="{'active':list?.page! === i}">{{ i + 1}}</button>  
+    </div>
+</div>

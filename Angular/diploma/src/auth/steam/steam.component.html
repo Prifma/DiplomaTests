@@ -1,0 +1,12 @@
+<div class="steam-login" *ngIf="!acc?.isAuth">
+    <form action="/signin" style="width: 100%;" method="post">
+        <button class="steam-login" type="submit"><img src="/src/assets/pngwing.com (1).png" alt="Steam Auth"><span>Вхід в Steam</span></button>
+    </form>
+</div>
+<div class="steam-logout" *ngIf="acc?.isAuth">
+    <img src="{{acc?.imgUrl}}">
+    <div id="after-image">
+        <span>{{acc?.name}}</span>
+        <a class="steam-logout--button" href="/signout?returnUrl=%2F">Sing out</a>
+    </div>  
+</div>

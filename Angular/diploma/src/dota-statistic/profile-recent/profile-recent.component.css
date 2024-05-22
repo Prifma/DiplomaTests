@@ -1,0 +1,19 @@
+.hero-img{
+    max-width: 4em;
+}
+td{
+    text-align: center;
+}
+.recent--table{
+    margin:0.7em;
+    border: 2px solid rgba(0, 0, 0, 0.608);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.526);
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.c{
+    cursor: pointer;
+}

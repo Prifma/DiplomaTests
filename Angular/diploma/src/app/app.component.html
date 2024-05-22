@@ -1,0 +1,8 @@
+<div class="desktop-header">
+    <app-header [acc]="Acc"></app-header>
+</div>
+    <router-outlet></router-outlet>
+<jw-modal id="modal-1">
+    <p>Ви забанені на данному сайті</p>
+    <button (click)="modalService.close();">Close</button>
+</jw-modal>

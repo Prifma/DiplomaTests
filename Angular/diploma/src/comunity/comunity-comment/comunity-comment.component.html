@@ -1,0 +1,30 @@
+<div class="comment-header">
+    <comunity-user [user]="_comm!.userId"></comunity-user>
+    <div  class="panel">
+        <admin-panel *ngIf="user!.userType == 1"  [entityId]="_comm!.id"  [userId]="_comm!.userId"></admin-panel>
+        <user-panel *ngIf="user?.isAuth && _comm?.userId == user?.id" (e)="Redaction()" [id]="_comm?.id"></user-panel>
+    </div>
+</div>
+<div *ngIf="!redactionMode" class="view-mod">
+    
+    <span>{{_comm?.body}}</span>
+    <like-dislike 
+    [numberOfLikes]="_comm!.likeCount" 
+    [numberOfDislike]="_comm!.disCount" 
+    [postId]="_comm?.id" 
+    [reaction]="_comm?.type!"
+    [_userId]="user?.id"></like-dislike>
+</div>  
+<div *ngIf="redactionMode">
+    <form #changeForm="ngForm">
+        <div class="form-row">
+            <div class="input-data">
+                <input name="title" type="text" [(ngModel)]="body" required pattern="[\S\s]{4,2000}" >
+                <div class="underline"></div>
+                <label >Назва</label>
+            </div>
+        </div>
+        <button (click)="Change()" [disabled]="!changeForm.valid">Зберегти</button>
+        <button (click)="ExitRedaction()">Скасувати</button>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+<div *ngIf="recive">
+<div class="totals" >
+    <div class="totals-item" *ngFor="let item of _totals">
+        <span class="totals-key">{{item.field}}</span>
+        <span class="totals-value">{{item.count}}</span>
+    </div>
+</div>
+</div>
+<div *ngIf="!recive" class="load">
+    <app-load></app-load>
+</div>

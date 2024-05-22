@@ -1,0 +1,13 @@
+
+.info-group{
+    padding: 0.7em;
+    margin: 0.7em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px black;
+}
+.medium{
+    max-width: 5em;
+}

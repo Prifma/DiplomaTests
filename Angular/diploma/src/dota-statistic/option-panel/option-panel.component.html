@@ -1,0 +1,26 @@
+<div class="stat-option">
+<div class="option--item option--name">
+    <label>Знайти Матч</label>   
+</div>
+<div class="option--item option--field">
+    <form class="option--form" #matchForm="ngForm" novalidate>
+        <input name="match" type="number" ngModel required pattern="[0-9]{8,10}">
+        <button class="option--button" [disabled]="matchForm.invalid" (click)="getMatch(matchForm)">Пошук</button>
+    </form>
+</div>
+<div class="option--item option--name">
+    <label>Знайти Гравця</label>   
+</div>
+<div class="option--item option--field">
+    <form class="option--form" #playerForm="ngForm" novalidate>
+        <input name="player" type="number" ngModel required pattern="[0-9]{9,10}">
+        <button class="option--button" [disabled]="playerForm.invalid" (click)="getPlayer(playerForm)">Пошук</button>
+    </form>
+</div>
+<div class="option--item option--name">
+    <label>Дізнатись тренди героя</label>   
+</div>
+<div class="option--item option--field">
+        <button class="option--button"  (click)="getTrends()">Вибрати персонажа</button>
+</div>
+</div>

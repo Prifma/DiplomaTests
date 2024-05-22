@@ -1,0 +1,37 @@
+<div *ngIf="matchRecive">
+    <div *ngIf="matchExist">
+        <div class="match-header">
+            <div class="team" *ngIf="model.radiant.proModel">
+                <img src="{{radiantTeam?.logoUrl}}" alt="{{radiantTeam?.tag}}">
+                <h1 class="color_radiant">{{radiantTeam?.name}}</h1>
+            </div>
+            <div class="match-score">
+                
+                <h1 [ngClass]="{color_dire:model.radiantWin === 'False',color_radiant:model.radiantWin === 'True'}" class="shadow">
+                    Перемога cил <span *ngIf="model.radiantWin === 'True'">Сяйва</span>
+                    <span *ngIf="model.radiantWin === 'False'">Пітьми</span>!
+                </h1>
+                
+                <h2><span class="color_radiant">{{model.radiant.score}}</span> {{model.duration}} <span class="color_dire">{{model.dire.score}}</span></h2>
+            </div>
+            <div class="team" *ngIf="model.dire.proModel">
+                <img src="{{direTeam?.logoUrl}}" alt="{{direTeam?.tag}}">
+                <h1 class="color_dire">{{direTeam?.name}}</h1>
+            </div>
+            </div>
+            <div class="match-statistic">
+                <label class="color_radiant">Сили Сяйва<span *ngIf="model.radiantWin">🏆</span></label>
+                <app-dota-side class="radiant" [heroes]="radiantHero"></app-dota-side>
+                <label class="color_dire">Сили Пітьми<span *ngIf="!model.radiantWin">🏆</span></label>
+                <app-dota-side class="dire" [heroes]="direHero"></app-dota-side>
+            </div>
+        </div>
+        <div *ngIf="!matchExist" class="content-not-exist">
+            <span> 
+                Матч не знайденно
+            </span>
+        </div>
+</div>
+<div *ngIf="!matchRecive" class="load">
+    <app-load></app-load>
+</div>

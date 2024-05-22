@@ -1,0 +1,15 @@
+:host button{
+  background-color: var(--buttons);
+  padding: 0.2em;
+  margin: 0.4em;
+  border-radius: 20%;
+  box-shadow: 2px 2px 5px black;
+  
+}
+@media only screen and (max-width:480px){
+  :host{
+      display: flex;
+      flex-direction: row;
+  }
+  
+}

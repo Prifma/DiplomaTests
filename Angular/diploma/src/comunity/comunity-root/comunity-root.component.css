@@ -1,0 +1,14 @@
+.com-root{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+router-outlet{
+    display: none;
+}
+
+@media only screen and (max-width: 740px) {
+    .com-root{
+        flex-direction: column-reverse;
+    }
+}

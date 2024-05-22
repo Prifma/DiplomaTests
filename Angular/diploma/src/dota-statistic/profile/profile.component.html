@@ -1,0 +1,16 @@
+<div *ngIf="profileExistInDota" class="profile">
+    <div class="profile--sections">
+        <button (click)="change(1)" [disabled]="currentAction==1">Профіль</button>
+        <button (click)="change(2)" [disabled]="currentAction==2">Останні Матчі</button>
+        <button (click)="change(3)" [disabled]="currentAction==3">Всього</button>
+    </div>
+    <div [ngSwitch]="currentAction" class="profile--section">
+        <div *ngSwitchCase="1"><app-profile-info [profile]="profileInfo"></app-profile-info></div>
+        <div *ngSwitchCase="2"><app-profile-recent [recent]="recentMatches" [recive]="infoRecived"></app-profile-recent></div>
+        <div *ngSwitchCase="3"><app-profile-totals [totals]="totals" [recive]="infoRecived"></app-profile-totals></div>
+    </div>
+</div>
+<div *ngIf="!profileExistInDota">
+    <div *ngIf="infoRecived" class="content-not-exist"><span>Даний аккаунт не заходив в Доту або його не існує</span></div>
+    <div *ngIf="!infoRecived" class="load"><app-load></app-load></div>
+</div>

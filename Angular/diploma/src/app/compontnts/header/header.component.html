@@ -1,0 +1,25 @@
+<div class="menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+      <span></span>
+    </label>
+    <div class="menu__box switch">
+        <div class="menu__item" >
+            <label class="switch__label" (click)="onItemChange(0)">Головна</label>
+        </div>
+        <div class="menu__item">
+            
+            <label (click)="onItemChange(1)" class="switch__label" >Спільнота</label>
+        </div>
+        <div class="menu__item" >
+            <label (click)="onItemChange(2)" for="two" class="switch__label">Статистика</label>
+        </div>
+        
+        <div class="menu__item">
+            <label (click)="onItemChange(3)" for="three" class="switch__label" >Турніри</label>
+        </div>
+        
+        <app-steam [acc] = "acc"></app-steam>
+    </div>
+</div>
+

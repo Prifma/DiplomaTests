@@ -1,0 +1,22 @@
+<div class="league-panel">
+    <input name="title" [(ngModel)]="searchString" ngModel maxlength="100" minlength="0" placeholder="Введіть ключову фразу">
+    <button (click)="refresh(0)">Пошук</button>
+</div>
+<div class="load" *ngIf="!answerIsCome">
+    <app-load></app-load>
+</div>
+<div class="result">
+    <div *ngIf="list?.leagues?.length === 0">
+        Пошук не дав результату
+    </div>
+    <div *ngFor="let item of list?.leagues" class="leagues">
+        <div class="league" (click)="goToMatches(item.id!)">
+            {{item.id}} - {{item.name}}
+        </div>
+    </div>
+    <div>
+        <div *ngFor="let i of paggination" class="pagination">  
+            <button (click)="refresh(i)" [disabled]="list?.page! === i" [ngClass]="{'active':list?.page! === i}">{{ i + 1}}</button>  
+        </div>
+    </div>
+</div>

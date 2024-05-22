@@ -1,0 +1,13 @@
+.profile--sections{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.profile--sections button{
+    background-color: #00000000;
+    color: var(--text-color);
+    text-decoration: underline;
+}
+.profile--sections button:disabled{
+    color: gray;
+}

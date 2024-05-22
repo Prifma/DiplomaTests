@@ -1,0 +1,62 @@
+.welcome{
+    background-color: rgba(0, 0, 0, 0.225);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 3em;
+    width: 100%;
+}
+.welcome h1{
+    align-self: center;
+    font-size: 1.8em;
+}
+.welcome p{
+    text-indent: 2em;
+    text-align: justify;
+}
+:host{
+    color: #8D8881;
+}
+.ending{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.ending img{
+    max-width: 60%;
+}
+img{
+    margin: 2em;
+}
+
+
+@media only screen and (min-width:375px) and (max-width:500px){
+    .welcome{
+        font-size: 12px;
+    }    
+}
+@media only screen and (max-width:375px) {
+    .welcome{
+        font-size: 10px;
+    }    
+}
+@media only screen and (min-width:500px) {
+    .welcome{
+        font-size: 14px;
+    }    
+}
+@media only screen and (min-width:800px) {
+    .welcome{
+        font-size: 18px;
+
+    }
+    .welcome span{
+        margin-left: 2em;
+    }
+    .welcome p{
+        max-width: 60%;
+        align-self: center;
+        text-align: center;
+    }    
+}

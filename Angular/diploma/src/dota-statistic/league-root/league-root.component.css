@@ -1,0 +1,23 @@
+.pagination button:not(.active){
+    color: white;
+}
+
+.leagues{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.league{
+    width: 90%;
+    margin: 0.5em;
+    padding: 3em;
+    text-align: center;
+    align-items: center;
+    background-color: var(--block);
+}
+.result{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

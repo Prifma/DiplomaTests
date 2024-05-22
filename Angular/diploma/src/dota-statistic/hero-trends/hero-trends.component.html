@@ -1,0 +1,38 @@
+
+<div class="item-hero">
+    <span (click)="Back()"><img src="/src/assets/icons8-back-80.png" class="back-image"></span>
+    <img src="{{items?.imageUrl}}" alt="{{items?.name}}">
+    <span>{{items?.name}}</span>
+</div>
+<div class="items" *ngIf="!items?.error && answerIsCome">
+    <div class="item-group">
+        <span>Початкові предмети:</span>
+        <div class="items-content">
+            <img *ngFor="let i of items?.start" src="{{i.path}}" alt="{{i.name}}">
+        </div>
+    </div>
+    <div class="item-group">
+        <span>Рання стадія гри:</span>
+        <div class="items-content">
+        <img *ngFor="let i of items?.early" src="{{i.path}}" alt="{{i.name}}">
+    </div>
+    </div>
+    <div class="item-group">
+        <span>Середина гри:</span>
+        <div class="items-content">
+        <img *ngFor="let i of items?.mid" src="{{i.path}}" alt="{{i.name}}">
+    </div>
+    </div>
+    <div class="item-group">
+        <span>Пізня стадія гри:</span>
+        <div class="items-content">
+        <img *ngFor="let i of items?.late" src="{{i.path}}" alt="{{i.name}}">
+    </div>
+    </div>
+</div>
+<div class="error" *ngIf="items?.error">
+    <span>Вибачте за незручності на стороні сервера деякі несправності </span>
+</div>
+<div class="load" *ngIf="!answerIsCome">
+    <app-load></app-load>
+</div>

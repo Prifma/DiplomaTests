@@ -1,0 +1,13 @@
+
+<div *ngIf=" answerIsCome" class="items">
+    <div *ngFor="let item of _heroes">
+    <div class="hero" (click)="pick(item.id)">
+        <img  src="{{'https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/' + item.name + '.png'}}"
+        alt="{{item.localize_name}}">
+        </div>
+    </div>
+</div>
+    
+<div class="load" *ngIf="!answerIsCome">
+    <app-load></app-load>
+</div>

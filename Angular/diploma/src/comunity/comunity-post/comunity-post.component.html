@@ -1,0 +1,65 @@
+<div class="post-header">
+    <span (click)="Back()"><img src="/src/assets/icons8-back-80.png" class="back-image"></span>
+    <comunity-user *ngIf="postIsLoad" [user]="_post.userId"></comunity-user>
+</div>
+<div class="load" *ngIf="!postIsLoad">
+    <app-load></app-load>
+</div>
+<div class="panel" *ngIf="postIsLoad">
+    <admin-panel *ngIf="user?.userType === 1" [entityId]="_post.id" [userId]="_post.userId"></admin-panel>
+    <user-panel *ngIf="user?.isAuth && _post?.userId == user?.id" (e)="Action()" [id]="_post.id"></user-panel>
+</div>
+<div *ngIf="!redactionMode && postIsLoad" class="view-mod">
+    <div class="title">
+        <span>{{_post.title}}</span>
+        
+    </div>
+    <div class="body">{{_post.body}}</div>
+    <div class="underBody">
+        <like-dislike 
+        [numberOfLikes]="_post.likeCount" 
+        [numberOfDislike]="_post.disCount" 
+        [postId]="_post.id" 
+        [reaction]="_post.type"
+        [_userId]="user?.id"></like-dislike>
+        <input type="checkbox"    [(ngModel)]="showComments"><label>Коментарі ({{_post.commentsCount}})</label>
+        <div *ngIf="showComments">
+            <form #comment="ngForm" novalidate *ngIf="user?.isAuth">
+                <div class="form-row">
+                    <div class="input-data">
+                        <input name="body" [(ngModel)]="body" type="text" required pattern="[\S\s]{4,2000}" >
+                        <div class="underline"></div>
+                        <label>Коментар</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" [disabled]="comment.invalid"  value="Опубілкувати" (click)="submitComment()"/>
+                </div>
+            </form>
+            <comunity-comment *ngFor="let item of _post.comments" [comm]="item"></comunity-comment>
+        </div>
+    </div>
+</div>
+<div *ngIf="redactionMode && postIsLoad" >
+    <form #createForm="ngForm" novalidate>
+        <div class="form-row">
+            <div class="input-data">
+                <input name="title" type="text" [(ngModel)]="postTitle" required pattern="[\S\s]{4,100}" >
+                <div class="underline"></div>
+                <label >Назва</label>
+            </div>
+        </div>
+        <div class="form-row">
+        <div class="input-data textarea">
+            <textarea class="post-body" rows="8" cols="80" name="body" [(ngModel)]="postBody"  required pattern="[\S\s]{4,5000}"></textarea>
+            <br />
+            <div class="underline"></div>
+            <label>Вміст</label>
+        </div>
+    </div>
+        <div class="form-group">
+            <input type="submit" [disabled]="createForm.invalid"  value="Змінити" (click)="change()"/>
+        </div>
+    </form>
+    <button (click)="exitRedactionMode()">Скасувати</button>
+</div>

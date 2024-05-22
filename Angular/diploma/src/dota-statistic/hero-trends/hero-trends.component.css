@@ -1,0 +1,24 @@
+.item-hero{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.item-hero img{
+    max-width: 6em;
+}
+.item-group img{
+    max-width: 2.9em;
+}
+.item-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.item-group span{
+    flex-basis: 20%;
+    
+}
+.items-content{
+    flex-basis: 70%;
+    flex-grow: 1;
+}

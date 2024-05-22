@@ -1,0 +1,41 @@
+<div *ngIf="recive" class="center">
+    <table class="recent--table" >
+        <tr>
+            <td class="hero--cell">
+                {{mock.heroId}}
+            </td>
+            <td class="hero--cell">
+                {{mock.kills}}
+            </td>
+            <td class="hero--cell">
+                {{mock.deaths}}
+            </td>
+            <td class="hero--cell">
+                {{mock.assists}}
+            </td>
+            <td class="hero--cell">
+                {{mock.matchId}}
+            </td>
+        </tr>
+        <tr *ngFor="let model of _recent" >
+            <td class="hero--cell">
+                <img src="{{model.imgUrl}}" alt="{{model.heroName}}" class="hero-img">
+            </td >
+            <td class="hero--cell">
+                {{model.kills}}
+            </td>
+            <td class="hero--cell">
+                {{model.deaths}}
+            </td>
+            <td class="hero--cell">
+                {{model.assists}}
+            </td>
+            <td class="hero--cell " (click)="toMatch(model.matchId!)">
+                <span class="c">{{model.matchId}}</span>
+            </td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!recive" class="load">
+    <app-load></app-load>
+</div>

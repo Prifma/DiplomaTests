@@ -1,0 +1,17 @@
+.preview-container{
+  display:grid;
+  columns: 1;
+  gap: 1em;
+  max-width: 100%;
+}
+:host{
+  padding-top: 1em;
+  max-width: 100%;
+}
+@media only screen and (min-width:740px) {
+  :host{
+    flex-shrink: 1;
+    flex-basis: 61%;
+    padding: 1em;
+  }
+}

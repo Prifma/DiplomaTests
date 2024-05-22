@@ -1,0 +1,21 @@
+<span (click)="Back()"><img src="/src/assets/icons8-back-80.png"></span>
+<form #createForm="ngForm" novalidate (ngSubmit)="onSubmit(createForm)">
+    <div class="form-row">
+    <div class="input-data">
+        <input name="title" type="text" ngModel required pattern="[\S\s]{4,100}" >
+        <div class="underline"></div>
+        <label >Назва</label>
+    </div>
+</div>
+<div class="form-row">
+    <div class="input-data textarea">
+        <textarea class="post-body" rows="8" cols="80" name="body" ngModel required pattern="[\S\s]{4,5000}"></textarea>
+        <br />
+        <div class="underline"></div>
+        <label>Вміст</label>
+    </div>
+</div>
+    <div class="form-group">
+        <input type="submit" [disabled]="createForm.invalid"  value="Опубілкувати" />
+    </div>
+</form>

@@ -1,0 +1,3 @@
+
+    <button  (click)="likeButtonClick()" [ngClass]="likesCounter ? 'like-button' : 'green'"> <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i> | {{numberOfLikes}} </button>
+    <button  (click)="dislikeButtonClick()" [ngClass]="dislikeCounter ? 'dislike-button' : 'red'"> <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i> | {{numberOfDislike}} </button> 

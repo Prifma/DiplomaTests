@@ -1,0 +1,18 @@
+<div class="com-option">
+    <button *ngIf="Acc!.isAuth" (click)="actionChange()" ><img src="/src/assets/icons8-plus-80.png" alt="Пачати нову тему"></button>
+    <form #search="ngForm">
+        <label for="title">Ключове слово в назві</label>
+        <input name="title" [(ngModel)]="searchString" ngModel maxlength="100" minlength="0">
+        <label for="sort">Сортування</label>
+        <select [(ngModel)]="selectedSort" name="sort">
+            <option [value]="0" [selected]="true">Відсутнє</option>
+            <option [value]="1" >По кількості вподобайкам</option>
+            <option  [value]="2" >По кількості дизлайкам</option>
+            <option  [value]="3" >По кількості реакцій</option>
+            <option  [value]="4" >По кількості коментаріїв</option>
+            <option  [value]="5" >Спочатку нове</option>
+            <option  [value]="6" >Спочатку старе</option>
+        </select>
+        <input type="submit" [disabled]="search.invalid"  value="Пошук" (click)="searchPosts(search)"/>
+    </form>
+</div>  
